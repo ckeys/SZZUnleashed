@@ -33,6 +33,16 @@ def fetch(project_issue_code, jira_project_name):
     os.makedirs('issues/', exist_ok=True)
     request = 'https://' + jira_project_name + '/rest/api/2/search?'\
         + 'jql={}&startAt={}&maxResults={}'
+    request_url = 'https://' + jira_project_name + '/rest/api/2/search?'\
+    
+    '''
+    headers = {
+        "Accept": "application/json"
+    }
+    query = {
+        'jql': jql
+    }
+    '''
 
     # Do small request to establish value of 'total'
     with url.urlopen(request.format(jql, start_at, '1')) as conn:
